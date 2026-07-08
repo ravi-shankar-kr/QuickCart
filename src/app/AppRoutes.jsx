@@ -4,58 +4,40 @@ import { Route, Routes } from "react-router-dom";
 import AppLayout from "../layouts/AppLayout";
 
 import Home from "../pages/Home/Home";
+import Products from "../pages/Products/Products";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import NotFound from "../pages/NotFound/NotFound";
+import ProductDetails from "../pages/Products/ProductDetails";
 
-import ProtectedRoute from "../components/common/ProtectecdRoute";
+import ProtectedRoute from "../components/common/ProtectedRoute";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        <Route path="/" element={<Home />} />
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+        <Route path="/products" element={<Products />} />
 
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+        <Route path="/products/:id" element={<ProductDetails />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route
-            path="/cart"
-            element={<div>Cart</div>}
-          />
+          <Route path="/cart" element={<div>Cart</div>} />
 
-          <Route
-            path="/wishlist"
-            element={<div>Wishlist</div>}
-          />
+          <Route path="/wishlist" element={<div>Wishlist</div>} />
 
-          <Route
-            path="/profile"
-            element={<div>Profile</div>}
-          />
+          <Route path="/orders" element={<div>Orders</div>} />
 
-          <Route
-            path="/orders"
-            element={<div>Orders</div>}
-          />
+          <Route path="/profile" element={<div>Profile</div>} />
         </Route>
       </Route>
 
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
