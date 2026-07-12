@@ -1,12 +1,21 @@
-# React + Vite
+# QuickCart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ecommerce frontend built with React, Vite, Redux Toolkit, Tailwind CSS. Prices are shown in INR (₹), products are fetched live from DummyJSON (50 products).
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm install
+npm run dev
 
-## Expanding the ESLint configuration
+Open the printed localhost URL in your browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Build for production
+
+npm run build
+npm run preview
+
+## Notes
+
+- Register an account first (check "Register as store admin" to unlock the Dashboard).
+- Cart, Wishlist, Orders, Profile, Theme, and Dashboard products are all saved in your browser's localStorage.
+- Dashboard -> Manage Products lets you add/edit/delete your own products, which merge with the DummyJSON catalog everywhere in the app.

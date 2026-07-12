@@ -1,10 +1,13 @@
-import React from "react";
-
-const EmptyState = ({ title, description }) => {
+const EmptyState = ({ title = "Nothing here yet", subtitle = "", action = null }) => {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center">
-      <h2 className="mb-2 text-2xl font-bold">{title}</h2>
-      <p className="text-neutral-500">{description}</p>
+    <div className="flex flex-col items-center justify-center text-center py-24 px-4">
+      <h3 className="text-lg font-semibold text-[#111111] dark:text-white">
+        {title}
+      </h3>
+      {subtitle && (
+        <p className="mt-2 text-sm text-neutral-500 max-w-sm">{subtitle}</p>
+      )}
+      {action && <div className="mt-6">{action}</div>}
     </div>
   );
 };

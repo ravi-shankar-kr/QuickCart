@@ -1,38 +1,17 @@
-import React from "react";
-import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
-const Rating = ({ rating = 0, reviews = 0, size = 18 }) => {
-  const stars = [];
-
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<FaStar key={i} size={size} className="text-yellow-400" />);
-    } else if (rating >= i - 0.5) {
-      stars.push(
-        <FaStarHalfAlt
-          key={i}
-          size={size}
-          className="text-yellow-400"
-        />
-      );
-    } else {
-      stars.push(
-        <FaRegStar
-          key={i}
-          size={size}
-          className="text-yellow-400"
-        />
-      );
-    }
-  }
-
+const Rating = ({ value = 0, size = 14 }) => {
+  const stars = [1, 2, 3, 4, 5];
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex gap-1">{stars}</div>
-
-      <span className="text-sm text-neutral-500">
-        ({reviews} Reviews)
-      </span>
+    <div className="flex items-center gap-0.5">
+      {stars.map((s) =>
+        s <= Math.round(value) ? (
+          <FaStar key={s} size={size} className="text-[#111111] dark:text-white" />
+        ) : (
+          <FaRegStar key={s} size={size} className="text-neutral-300 dark:text-neutral-600" />
+        )
+      )}
+      <span className="ml-1 text-xs text-neutral-500">{value?.toFixed?.(1)}</span>
     </div>
   );
 };
